@@ -38,8 +38,9 @@ void print_moves(SimonGame *game) {
 }
 
 //uses switch and rand() to determine the next move, 
-char move_picker(){
-    switch (rand() % 4){
+char move_picker(int hard_mode){
+    int range = hard_mode ? 6 : 4; //looks for if hard mode or not and determines which range to use
+    switch (rand() % range){
         case 0: 
             return 'R';
         case 1:
@@ -48,6 +49,10 @@ char move_picker(){
             return 'B';
         case 3:
             return 'Y';
+        case 4:
+            return 'O'; //hard mode only
+        case 5:
+            return 'P'; // hard mode only
     }
 }
 
@@ -60,20 +65,18 @@ int check_moves(SimonGame *game, char *input){
    return 0; //don't match
 }
 
+//writes scores to scores.txt
+void score_tracker(int score, int hard_mode){
+    FILE *file = fopen("scores.txt", "a");
+
+
+    fprintf(file, "Score: %d\nDifficulty: %s\n", score, (hard_mode == 2) ? "Hard": "Normal");
+    fclose(file);
+}
+
+
+
 void free_game(SimonGame *game){
     free(game->sequence);
     free(game);
 }
-
-/*
-TODO:
-    -make simple tester in main.c to test what I have
-    -incorporate file i/o by making a high score file
-    -potentially add a harder difficulty incorporating more colors
-    -makefile
-
-
-
-
-
-*/

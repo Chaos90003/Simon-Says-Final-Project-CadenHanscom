@@ -10,9 +10,10 @@ typedef struct {
 SimonGame* create_game();
 void add_move(SimonGame *game, char move);
 void print_moves(SimonGame *game);
-char move_picker();
+char move_picker(int hard_mode);
 int check_moves(SimonGame *game, char *input);
 void free_game(SimonGame *game);
+void score_tracker(int score, int hard_mode);
 
 
 #endif
