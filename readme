@@ -1,0 +1,35 @@
+
+How to run
+__________
+
+Use ./play in terminal
+
+program only has been tested through ssh into ubuntu
+
+no libraries were installed in the making of the project
+meaning only libraries installed during lectures may be needed
+
+
+
+Description
+
+___________
+
+The game is a classic take on Simon Says, with two provided difficulties
+
+Hard mode simply adds two additional colors that can appear
+
+user input is NOT case sensitive, and spaces in between the user input will NOT work
+
+i.e the terminal will print R G B Y
+
+and the user must repsond with RGBY and not R G B Y
+
+your score will be written into scores.txt, will have to look at it through nano as it won't appear in vscode
+
+
+Features not taught in class include:
+    Clearing the terminal
+    Implementing Random
+    using sleep() and srand(time(NULL))
+    using the ternary operator (?) for quicker if/else (I think this one is cool)

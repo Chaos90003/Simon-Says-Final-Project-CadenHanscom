@@ -27,8 +27,6 @@ int main() {
 
     hard_mode = (hard_mode == 2);
 
-
-
     printf("The game is about to start\n");
     if (hard_mode == 1){
         printf("You picked Hard!\n");
@@ -54,7 +52,7 @@ while (1) {
 
     if (!check_moves(game, input)) {
         printf("That's wrong! You lose.\n");
-        score_tracker(score, hard_mode);
+        score_tracker(score, hard_mode); 
         break;
     }
 
