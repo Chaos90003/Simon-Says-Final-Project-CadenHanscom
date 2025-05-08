@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "simon.h"
 
 #define MAX_INPUT 100
@@ -45,6 +46,11 @@ while (1) {
     printf("Enter the sequence: ");
     fgets(input, MAX_INPUT, stdin);
     input[strcspn(input, "\n")] = '\0';
+
+    //allows for lower case input
+    for (int i = 0; input[i] != '\0'; i++){
+        input[i] = toupper(input[i]);
+    }
 
     if (!check_moves(game, input)) {
         printf("That's wrong! You lose.\n");

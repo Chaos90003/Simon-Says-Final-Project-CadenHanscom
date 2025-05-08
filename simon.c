@@ -37,6 +37,7 @@ void print_moves(SimonGame *game) {
         fflush(stdout);
         sleep(1);
     }
+    
     printf("\n");
 
     sleep(0.5);
@@ -63,7 +64,6 @@ char move_picker(int hard_mode){
 }
 
 //compares to see if matches
-//not confident on functionality of this, check first if program fails
 int check_moves(SimonGame *game, char *input){
    if (memcmp(game->sequence, input, game->length) == 0){
         return 1; //match
