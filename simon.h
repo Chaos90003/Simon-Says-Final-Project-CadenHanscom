@@ -19,7 +19,7 @@ void print_moves(SimonGame *game);
 char move_picker(int hard_mode);
 int check_moves(SimonGame *game, char *input);
 void free_game(SimonGame *game);
-void score_tracker(int score, int hard_mode)
+void score_tracker(int score, int hard_mode);
 
 
 #endif

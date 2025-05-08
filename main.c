@@ -21,7 +21,8 @@ incoroporates the functions defined in simon.c
 
 //controls the game flow, has all the prints, and takes the user input and determines
 //if it matches or not either ending the game, or moving to the next round
-int main() {
+
+int main(){
     SimonGame *game = create_game();
     char input[MAX_INPUT];
     int round = 1;
@@ -65,7 +66,7 @@ while (1) {
         input[i] = toupper(input[i]);
     }
 
-    //checks if input matches simon and takes the players score if game ends
+    //checks if input matches simon and takes the players score if game
     if (!check_moves(game, input)) {
         printf("That's wrong! You lose.\n");
         score_tracker(score, hard_mode); 

@@ -10,7 +10,6 @@ no libraries were installed in the making of the project
 meaning only libraries installed during lectures may be needed
 
 
-
 Description
 
 ___________
@@ -25,7 +24,7 @@ i.e the terminal will print R G B Y
 
 and the user must repsond with RGBY and not R G B Y
 
-your score will be written into scores.txt, will have to look at it through nano as it won't appear in vscode
+your score will be written into scores.txt, you will have to look at it through nano as it won't reflect in vscode
 
 
 Features not taught in class include:
