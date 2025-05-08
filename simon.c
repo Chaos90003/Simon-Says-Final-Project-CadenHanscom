@@ -8,7 +8,7 @@
 SimonGame* create_game(){
     SimonGame *game = (SimonGame *)malloc(sizeof(SimonGame));
     game->length = 0;
-    game->capacity = 4 //for each color - remember to consider making a hard difficulty later
+    game->capacity = 4; //for each color - remember to consider making a hard difficulty later
     game->sequence = (char*)malloc(game->capacity * sizeof(char));
     srand(time(NULL)); //ensures originality
     return game;
@@ -30,7 +30,7 @@ void add_move(SimonGame *game, char move){
 
 }
 //prints the sequence of moves
-void print_moves(simonGame *game) {
+void print_moves(SimonGame *game) {
     for (char *ptr = game->sequence; ptr < game->sequence + game-> length; ptr++){
         printf("%c ", *ptr);
     }
@@ -62,7 +62,7 @@ int check_moves(SimonGame *game, char *input){
 
 void free_game(SimonGame *game){
     free(game->sequence);
-    fre(game);
+    free(game);
 }
 
 /*
@@ -71,7 +71,7 @@ TODO:
     -incorporate file i/o by making a high score file
     -potentially add a harder difficulty incorporating more colors
     -makefile
-    
+
 
 
 

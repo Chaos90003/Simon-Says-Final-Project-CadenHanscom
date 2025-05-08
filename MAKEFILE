@@ -1,0 +1,14 @@
+play: main.o simon.o
+	gcc main.o simon.o -o play
+
+main.o: main.c simon.h
+	gcc main.c -c -o main.o 
+
+simon.o: simon.c simon.h
+	gcc simon.c -c -o simon.o
+
+
+clean: 
+	rm play
+	rm *.o
+
