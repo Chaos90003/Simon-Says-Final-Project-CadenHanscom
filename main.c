@@ -1,3 +1,15 @@
+
+/*
+Name: Caden Hanscom
+Date: 5/8/2025
+*/
+
+
+/*
+This file manages the game flow and 
+incoroporates the functions defined in simon.c
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,6 +19,8 @@
 #define MAX_INPUT 100
 
 
+//controls the game flow, has all the prints, and takes the user input and determines
+//if it matches or not either ending the game, or moving to the next round
 int main() {
     SimonGame *game = create_game();
     char input[MAX_INPUT];
@@ -14,14 +28,15 @@ int main() {
     int hard_mode;
     int score = 0;
 
+    //provid a warning when something other than 1 or 2 is inputted
     do {
         printf("Choose difficulty:\n 1 = Nomral:\n 2 = Hard:\n >");
         if (scanf("%d", &hard_mode) != 1 || (hard_mode != 1 && hard_mode != 2)){
             printf("Invalid input, enter 1 or 2\n");
-            while(getchar() != '\n');
+            while(getchar() != '\n'); //prevents the input being incorrectly read
             hard_mode = 0;
         } else {
-            while (getchar() != '\n');
+            while (getchar() != '\n'); //prevents the input being incorrectly read
         }
     } while (hard_mode != 1 && hard_mode != 2);
 
@@ -50,6 +65,7 @@ while (1) {
         input[i] = toupper(input[i]);
     }
 
+    //checks if input matches simon and takes the players score if game ends
     if (!check_moves(game, input)) {
         printf("That's wrong! You lose.\n");
         score_tracker(score, hard_mode); 

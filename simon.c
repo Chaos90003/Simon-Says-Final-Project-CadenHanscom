@@ -1,3 +1,11 @@
+
+/*
+This file has all the fleshes out functions and defining features
+ensures there is enough space provided and that more is provided when needed
+determines which color will be picked and keeps track of the score 
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -30,7 +38,7 @@ void add_move(SimonGame *game, char move){
     game->length++;
 
 }
-//prints the sequence of moves
+//prints the sequence of moves and adds delay inbetween the moves
 void print_moves(SimonGame *game) {
     for (char *ptr = game->sequence; ptr < game->sequence + game-> length; ptr++){
         printf("%c ", *ptr);
@@ -44,9 +52,9 @@ void print_moves(SimonGame *game) {
     system("clear"); //clears simons sequence from terminal
 }
 
-//uses switch and rand() to determine the next move, 
+//uses switch and rand() to determine the next move depending on the user selected difficulty
 char move_picker(int hard_mode){
-    int range = hard_mode ? 6 : 4; //looks for if hard mode or not and determines which range to use
+    int range = hard_mode ? 6 : 4; //looks for if hard mode or not and determines which range to use (uses fancy if/else)
     switch (rand() % range){
         case 0: 
             return 'R';
@@ -72,16 +80,16 @@ int check_moves(SimonGame *game, char *input){
 }
 
 //writes scores to scores.txt
+//takes score and hard_mode difficulty, uses fancy if/else to determine to write out Hard or Normal for difficulty
 void score_tracker(int score, int hard_mode){
     FILE *file = fopen("scores.txt", "a");
-
 
     fprintf(file, "\nScore: %d\nDifficulty: %s\n", score, (hard_mode == 2) ? "Hard": "Normal");
     fclose(file);
 }
 
 
-
+//frees dyanmically allocated memory to avoid memory leaks
 void free_game(SimonGame *game){
     free(game->sequence);
     free(game);
