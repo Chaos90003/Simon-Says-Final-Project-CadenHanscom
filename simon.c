@@ -3,6 +3,7 @@
 #include <string.h>
 #include <time.h>
 #include "simon.h"
+#include <unistd.h>
 
 //creates the game, will be called in main
 SimonGame* create_game(){
@@ -33,8 +34,13 @@ void add_move(SimonGame *game, char move){
 void print_moves(SimonGame *game) {
     for (char *ptr = game->sequence; ptr < game->sequence + game-> length; ptr++){
         printf("%c ", *ptr);
+        fflush(stdout);
+        sleep(1);
     }
     printf("\n");
+
+    sleep(0.5);
+    system("clear"); //clears simons sequence from terminal
 }
 
 //uses switch and rand() to determine the next move, 
@@ -70,7 +76,7 @@ void score_tracker(int score, int hard_mode){
     FILE *file = fopen("scores.txt", "a");
 
 
-    fprintf(file, "Score: %d\nDifficulty: %s\n", score, (hard_mode == 2) ? "Hard": "Normal");
+    fprintf(file, "\nScore: %d\nDifficulty: %s\n", score, (hard_mode == 2) ? "Hard": "Normal");
     fclose(file);
 }
 
