@@ -24,7 +24,8 @@ i.e the terminal will print R G B Y
 
 and the user must repsond with RGBY and not R G B Y
 
-your score will be written into scores.txt, you will have to look at it through nano as it won't reflect in vscode
+your score will be written into scores.txt, you will have to look at it through nano with "nano scores.txt"
+as the changes won't reflect in vscode
 
 
 Features not taught in class include:
