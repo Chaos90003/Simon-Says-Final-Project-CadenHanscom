@@ -47,7 +47,7 @@ void print_moves(SimonGame *game) {
     
     printf("\n");
 
-    sleep(0.5);
+    sleep(0.5); //delay in between terminal prints
     system("clear"); //clears simons sequence from terminal
 }
 
